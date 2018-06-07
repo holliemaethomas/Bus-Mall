@@ -1,4 +1,5 @@
 'use strict';
+debugger;
 
 // // ...................Global..................................
 
@@ -82,10 +83,9 @@ for(var i = 0; i < Product.names.length; i++){
   function showTally(){
     for (var i = 0; i < Product.all.length; i++){
       var liEl = document.createElement('li');
-      liEl.textContent = Product.all[i].name + ' has ' + Product.all.[i].votes + ' votes in'+ Product.all[i].views + ' views.';
+      liEl.textContent = Product.all[i].name + ' has ' + Product.all[i].votes + ' votes in'+ Product.all[i].views + ' views.';
       Product.tally.appendChild(liEL);
     }
   }
 
   Product.container.addEventListener('click', handleClick);
-  displayPics ();
