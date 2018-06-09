@@ -1,0 +1,18 @@
+body {
+  background-color: rgb(139, 134, 134)
+
+}
+h1{
+  text-decoration-color: blueviolet
+}
+
+img {
+  max-height: 200px;
+  max-width: 200px;
+  display: -webkit-inline-box; 
+}
+
+#chartContainer{
+  height:600px;
+  width:900px;
+}
