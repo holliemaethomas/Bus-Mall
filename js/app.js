@@ -58,7 +58,7 @@ function displayPics() {
 function handleClick(event) {
   console.log(Product.totalClicks, 'total clicks');
   //make the clicks stop at 25
-  if (Product.totalClicks > 24) {
+  if (Product.totalClicks > 25) {
     Product.container.removeEventListener('click', handleClick);
     //show the list after the last click
     showTally();
@@ -103,7 +103,7 @@ function getData(){
 
 
 
-// create the chart////
+// create the chart//////////////////////////////////////////////////////////////////////////
 function drawChart(){
   var ctx = document.getElementById('myChart');
   var myChart = new Chart(ctx, {
@@ -114,9 +114,9 @@ function drawChart(){
         label: '# of Votes',
         data: totalVotes,
         backgroundColor: [
-          'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange',    
-          'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange',    
-          
+          'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange',
+          'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange', 'black', 'orange',
+
         ],
         borderColor: [
           'rgba(255,99,132,1)',
@@ -141,4 +141,38 @@ function drawChart(){
   });
 }
 
+// ////////////////////////////////////////////////////////////////////////////////////////////
+
+// add local storage
+// 710
+
+// in html add button with id clear storage
+// stringify the data we want saved products.all (votes, names, clicks)
+
+
+
+// create a place to put the information
+// stringify the information
+//four steps in localStorage to remember
+//take setItem method to put in LocalStorage
+//1.) JSON.stringify();
+//2.) localStorage.setItem();
+//first two are encoding it or setting it in the database
+//last two steps are retrieving it from the built in database and turning it back into JS (but taking up different space in memory even though it looks identical)
+//3.)localStorage.getItem();
+//4.) JSON.parse();
+function addLocalStorage (){
+  var dataStore = [];
+  for (var i = 0; i < Product.all.length; i++) {
+    dataStore.push(Product.all[i].votes, Product.all[i].name, Product.all[i].views);
+    console.log(dataStore);
+    var makeItWork = JSON.stringify(dataStore);
+    console.log(dataStore);
+    localStorage.setItem(dataStore, makeItWork);
+    localStorage.getItem(dataStore, makeItWork);
+    JSON.parse(makeItWork);
+    console.log(dataStore);
+  }
+}
+addLocalStorage();
 
