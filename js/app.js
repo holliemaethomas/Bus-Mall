@@ -150,11 +150,15 @@ var stringifyProducts = JSON.stringify(Product.names);
 localStorage.setItem('names',stringifyProducts); 
 
 
-function pushLocalStorage() {
+function addLocalStorageOfClicks() {
   var localStorageData = JSON.stringify(Product.all);
   localStorage.setItem('Product', localStorageData);
   localStorage.getItem('Product', localStorageData);
   JSON.parse(localStorageData);
 }
-pushLocalStorage();
+addLocalStorageOfClicks();
+
+
+
+
 
